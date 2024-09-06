@@ -2,32 +2,148 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply w-full overflow-x-hidden bg-gray-200 flex items-center justify-center md:p-0 p-4;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.divider-x {
+  @apply w-full h-[1px] bg-gray-200 rounded-full;
+}
+
+.btn {
+  @apply px-4 py-2 text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 rounded-md;
+}
+
+h1 {
+  @apply text-3xl font-bold my-2;
+}
+
+h2 {
+  @apply text-2xl font-bold my-2;
+}
+
+h3 {
+  @apply text-xl font-bold my-2;
+}
+
+h4 {
+  @apply text-lg font-bold my-2;
+}
+
+h5 {
+  @apply text-base font-bold my-2;
+}
+
+h6 {
+  @apply text-sm font-bold my-2;
+}
+
+p {
+  @apply text-sm leading-6;
+}
+
+.tiptap {
+  @apply focus:outline-none h-[400px] overflow-y-auto p-2 no-scrollbar;
+}
+
+.tiptap a {
+  @apply text-blue-600;
+}
+
+.tiptap pre {
+  @apply bg-black font-JetBrainsMono text-white rounded-md p-2 m-2;
+}
+
+.tiptap pre code {
+  @apply text-sm p-0 text-inherit bg-none;
+}
+
+.tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  @apply pointer-events-none h-0 float-left text-[#adb5bd];
+}
+
+.tiptap ol {
+  @apply list-decimal pl-8 pr-4 py-2;
+}
+
+.tiptap ul {
+  @apply list-disc pl-8 pr-4 py-2;
+}
+
+.tiptap ul li,
+.tiptap ol li {
+  @apply m-1 p-1;
+}
+
+.tiptap blockquote {
+  @apply text-sm p-4 bg-gray-200 rounded-md my-2;
+}
+
+.tiptap img {
+  @apply block w-full rounded-md mx-auto my-4;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #616161;
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-name,
+.hljs-regexp,
+.hljs-link,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #f98181;
+}
+
+.hljs-number,
+.hljs-meta,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params {
+  color: #fbbc88;
+}
+
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet {
+  color: #b9f18d;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #faf594;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #70cff8;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
 }
